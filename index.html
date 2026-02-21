@@ -1,559 +1,163 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luca Di Donato — Wildlife & Humanity</title>
-  <meta name="description" content="Photography — Documentary — Fine Art. Natural light. Real stories." />
-
-  <!-- Social preview (add files later) -->
-  <meta property="og:title" content="Luca Di Donato — Wildlife & Humanity" />
-  <meta property="og:description" content="Photography — Documentary — Fine Art. Natural light. Real stories." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-cover.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/og-cover.jpg" />
-
-  <link rel="icon" href="assets/favicon.png" />
-
-  <style>
-    :root{
-      --bg: #0b0b0c;
-      --panel: rgba(255,255,255,.06);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --faint: rgba(255,255,255,.55);
-      --line: rgba(255,255,255,.12);
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-
-      --max: 1120px;
-      --pad: 24px;
-
-      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color: var(--text);
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.08), transparent 55%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,.06), transparent 60%),
-                  var(--bg);
-    }
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ opacity:.92; }
-
-    /* Layout helpers */
-    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 var(--pad); }
-    .section{ padding: 80px 0; border-top: 1px solid var(--line); }
-    .kicker{
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: var(--faint);
-    }
-    .h2{
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.2vw, 44px);
-      margin: 10px 0 12px;
-      line-height: 1.05;
-    }
-    .lead{
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      max-width: 72ch;
-      margin: 0;
-    }
-
-    /* Top nav */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11,11,12,.55);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      height: 64px;
-      gap: 18px;
-    }
-    .brand{
-      display:flex; flex-direction:column; line-height:1.05;
-    }
-    .brand strong{ font-weight: 650; letter-spacing:.02em; }
-    .brand span{ font-size: 12px; color: var(--faint); margin-top: 2px; letter-spacing:.12em; text-transform: uppercase; }
-
-    .nav{
-      display:flex;
-      gap: 18px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .nav a{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 10px 10px;
-      border-radius: 999px;
-    }
-    .nav a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      box-shadow: none;
-      font-size: 14px;
-      gap: 10px;
-    }
-    .btn:hover{ background: rgba(255,255,255,.10); }
-    .btn.primary{
-      background: rgba(255,255,255,.14);
-      border-color: rgba(255,255,255,.22);
-    }
-
-    /* Hero */
-    .hero{
-      padding: 70px 0 40px;
-      border-top: none;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-    .hero-title{
-      font-family: var(--serif);
-      font-size: clamp(44px, 6vw, 76px);
-      line-height: .96;
-      margin: 10px 0 14px;
-      letter-spacing: .01em;
-    }
-    .hero-sub{
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      margin: 0 0 18px;
-      max-width: 62ch;
-    }
-    .hero-actions{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 18px; }
-    .card{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .hero-image{
-      min-height: 420px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65)),
-        url("assets/hero.jpg");
-      background-size: cover;
-      background-position: center;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding: 18px;
-    }
-    .hero-image .meta{
-      display:flex; gap: 12px; flex-wrap:wrap;
-      color: rgba(255,255,255,.82);
-      font-size: 13px;
-    }
-    .pill{
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.14);
-    }
-
-    /* Grids */
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .journey{
-      padding: 18px;
-    }
-    .journey .year{ color: var(--faint); font-size: 12px; letter-spacing:.16em; text-transform: uppercase; }
-    .journey .name{ font-family: var(--serif); font-size: 22px; margin: 10px 0 6px; }
-    .journey .tag{ color: var(--muted); font-size: 14px; margin: 0; }
-
-    /* Map / countries */
-    .chips{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-    .chip{
-      font-size: 12px;
-      color: var(--muted);
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.04);
-    }
-
-    /* Prints */
-    .print{
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height: 170px;
-    }
-    .print .title{ font-family: var(--serif); font-size: 22px; margin:0; }
-    .print .meta{ color: var(--muted); font-size: 13px; margin:0; }
-    .print .price{ color: rgba(255,255,255,.88); font-size: 14px; margin-top:auto; }
-
-    /* Licensing */
-    .two-col{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-    .list{
-      display:grid;
-      gap: 10px;
-      padding: 18px;
-    }
-    .list .item{ color: var(--muted); font-size: 14px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.10); border-radius: 14px; background: rgba(255,255,255,.03); }
-
-    /* About stats */
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .stat{ padding: 18px; text-align:left; }
-    .stat strong{ display:block; font-size: 26px; font-family: var(--serif); }
-    .stat span{ color: var(--muted); font-size: 13px; }
-
-    /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .field{ display:flex; flex-direction:column; gap: 8px; }
-    label{ font-size: 12px; color: var(--faint); letter-spacing:.12em; text-transform: uppercase; }
-    input, select, textarea{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      outline: none;
-      font-family: var(--sans);
-      font-size: 14px;
-    }
-    textarea{ min-height: 140px; resize: vertical; }
-    .contact-actions{ display:flex; gap: 12px; margin-top: 14px; flex-wrap:wrap; }
-    .small{ color: var(--muted); font-size: 13px; line-height:1.6; }
-
-    /* Footer */
-    footer{
-      padding: 26px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .footer-row{ display:flex; justify-content:space-between; gap: 18px; flex-wrap:wrap; }
-    .footer-nav{ display:flex; gap: 12px; flex-wrap:wrap; }
-
-    /* Responsive */
-    @media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .hero-image{ min-height: 360px; }
-      .grid-3{ grid-template-columns: 1fr; }
-      .two-col{ grid-template-columns: 1fr; }
-      .stats{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .nav{ display:none; } /* keeps it simple; we can add a tiny mobile menu later if you want */
-    }
-  </style>
-</head>
-
-<body>
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="Home">
-        <strong>Luca Di Donato</strong>
-        <span>Photography — Documentary — Fine Art</span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="#journeys">Journeys</a>
-        <a href="#prints">Prints</a>
-        <a href="#licensing">Licensing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="btn primary" href="#contact">Commission / Enquire</a>
-    </div>
-  </div>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="kicker">Photography — Documentary — Fine Art</div>
-          <h1 class="hero-title">Luca<br/>Di Donato</h1>
-          <p class="hero-sub">Wildlife and humanity across 13 countries.<br/>Natural light. Real stories.</p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#journeys">Explore the World</a>
-            <a class="btn" href="#prints">Fine Art Prints</a>
-          </div>
-
-          <p class="small" style="margin-top:16px;color:var(--faint);">
-            Tip: replace <strong>assets/hero.jpg</strong> with your strongest Peru or Botswana photo for the best first impression.
-          </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luca Di Donato | Fine Art Photography</title>
+    <meta
+      name="description"
+      content="Fine art wildlife photography by Luca Di Donato. Archival prints and commercial licensing for editorial and brand storytelling."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero section-shell">
+        <div class="hero-media-wrap">
+          <img src="assets/hero.jpg" alt="Elephants crossing open plains at dawn" class="hero-media" />
         </div>
-
-        <div class="card hero-image" role="img" aria-label="Hero image">
-          <div class="meta">
-            <span class="pill">Botswana — Okavango Delta (2024)</span>
-            <span class="pill">Peru — Andean Highlands (2023)</span>
-          </div>
+        <div class="hero-content">
+          <p class="eyebrow">Fine Art Wildlife Photography</p>
+          <h1>Luca Di Donato</h1>
+          <p class="subtitle">Wildlife and humanity across 15 countries. Natural light. Real stories.</p>
+          <a class="button" href="#journeys" data-scroll-target="journeys">Explore the World</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- JOURNEYS -->
-    <section id="journeys" class="section">
-      <div class="wrap">
-        <div class="kicker">Selected Work</div>
-        <div class="h2">Featured Journeys</div>
-        <p class="lead">Three recent series — curated as an entry point to the full archive.</p>
-
-        <div class="grid-3">
-          <div class="card journey">
-            <div class="year">2024</div>
-            <div class="name">Botswana</div>
-            <p class="tag">Silence</p>
-          </div>
-          <div class="card journey">
-            <div class="year">2023</div>
-            <div class="name">Rwanda</div>
-            <p class="tag">Primordial</p>
-          </div>
-          <div class="card journey">
-            <div class="year">2024</div>
-            <div class="name">Mongolia</div>
-            <p class="tag">Endurance</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAP / COUNTRIES -->
-    <section class="section">
-      <div class="wrap">
-        <div class="kicker">13 Countries — 5 Continents</div>
-        <div class="h2">The World in Frame</div>
-        <p class="lead">From the Okavango Delta to the fjords of Norway. Every frame, a lived moment.</p>
-
-        <!-- Keep it simple for now: clickable chips later -->
-        <div class="chips" aria-label="Countries">
-          <span class="chip">Botswana</span>
-          <span class="chip">China</span>
-          <span class="chip">Italy</span>
-          <span class="chip">South Korea</span>
-          <span class="chip">Maldives</span>
-          <span class="chip">Norway</span>
-          <span class="chip">Peru</span>
-          <span class="chip">South Africa</span>
-          <span class="chip">Spain</span>
-          <span class="chip">Sri Lanka</span>
-          <span class="chip">Thailand</span>
-          <span class="chip">USA</span>
-          <span class="chip">Vietnam</span>
-        </div>
-
-        <div style="margin-top:18px;">
-          <a class="btn" href="#contact">Commission a Journey</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRINTS -->
-    <section id="prints" class="section">
-      <div class="wrap">
-        <div class="kicker">Fine Art Prints</div>
-        <div class="h2">Crafted for Permanence</div>
-        <p class="lead">Limited editions, archival pigment printing on 300gsm cotton rag. Each print signed and numbered.</p>
-
-        <div class="grid-3">
-          <div class="card print">
-            <p class="title">Sovereign</p>
-            <p class="meta">Ed. 1/25 — Okavango Delta</p>
-            <p class="price">From €1,200</p>
-          </div>
-          <div class="card print">
-            <p class="title">Stalker</p>
-            <p class="meta">Ed. 1/20 — Serengeti</p>
-            <p class="price">From €980</p>
-          </div>
-          <div class="card print">
-            <p class="title">Leviathan</p>
-            <p class="meta">Ed. 1/15 — Azores</p>
-            <p class="price">From €1,600</p>
-          </div>
-        </div>
-
-        <p class="small" style="margin-top:14px;">All prints include certificate of authenticity &amp; white-glove delivery.</p>
-      </div>
-    </section>
-
-    <!-- LICENSING -->
-    <section id="licensing" class="section">
-      <div class="wrap">
-        <div class="kicker">Commercial &amp; Editorial</div>
-        <div class="h2">Images Available for Licensing</div>
-        <p class="lead">
-          The full archive — spanning four continents, fifteen countries, and thousands of hours in the field —
-          is available for editorial and commercial use. Every image is shot in natural light and carries a story worth telling.
-        </p>
-
-        <div style="margin-top:18px;">
-          <a class="btn primary" href="#contact">Enquire About Licensing</a>
-        </div>
-
-        <div class="two-col">
-          <div class="card list">
-            <div class="item">Safari Lodges &amp; Eco-Resorts</div>
-            <div class="item">Travel &amp; Lifestyle Publications</div>
-            <div class="item">Conservation NGOs</div>
-            <div class="item">Hospitality &amp; Luxury Brands</div>
-            <div class="item">Documentary &amp; Film Production</div>
-            <div class="item">Advertising &amp; Brand Campaigns</div>
-          </div>
-
-          <div class="card" style="padding:18px;">
-            <p class="small" style="margin:0 0 12px;color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.35;">
-              “Images that carry the weight of place — available exclusively for those who understand the value of authentic storytelling.”
-            </p>
-            <p class="small" style="margin:0;">Okavango Delta, 2024<br/>First light, 5:30am</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="wrap">
-        <div class="kicker">The Photographer</div>
-        <div class="h2">A Lens Held to the World</div>
-        <p class="lead">
-          Luca Di Donato has spent the better part of a decade moving through remote places with a camera, a notebook, and the patience that wild subjects demand. Born in Milan, drawn outward.
-          His work lives at the intersection of wildlife documentary and portraiture — the moment before language, where instinct and light say everything.
-        </p>
-        <p class="lead" style="margin-top:10px;">
-          From the fjords of Norway to the coral atolls of the Maldives, from Spain's sierras to the streets of Seoul — Luca shoots exclusively in natural light.
-          The work is quiet. It asks to be looked at slowly.
-        </p>
-
-        <div class="stats">
-          <div class="card stat"><strong>13</strong><span>Countries</span></div>
-          <div class="card stat"><strong>8+</strong><span>Years in Field</span></div>
-          <div class="card stat"><strong>40k</strong><span>Images Archived</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="wrap">
-        <div class="kicker">Get in Touch</div>
-        <div class="h2">Begin a Conversation</div>
-        <p class="lead">
-          For print enquiries, licensing requests, commissioned projects, or simply to discuss a journey — all correspondence is welcome and personally answered.
-        </p>
-
-        <div class="card" style="padding:18px; margin-top:18px;">
-          <p class="small" style="margin:0;">
-            Email: <a href="mailto:studio@lucadidonato.com"><strong>studio@lucadidonato.com</strong></a>
-          </p>
-          <p class="small" style="margin:10px 0 0;">
-            Follow: <a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="LinkedIn">LinkedIn</a> · <a href="#" aria-label="500px">500px</a>
-          </p>
-        </div>
-
-        <!-- Simple: no backend. Uses mailto so it "works" now. -->
-        <form class="card" style="padding:18px; margin-top:16px;"
-              action="mailto:studio@lucadidonato.com" method="post" enctype="text/plain">
-          <div class="contact-grid">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" autocomplete="name" required />
+      <section id="journeys" class="section-shell section-gap">
+        <header class="section-header">
+          <p class="eyebrow">Featured Journeys</p>
+          <h2>Places that shape the work.</h2>
+        </header>
+        <div class="journey-grid">
+          <article class="journey-card">
+            <img src="assets/journey-1.jpg" alt="Leopard resting in tall grass in Botswana" />
+            <div class="journey-text">
+              <h3>Botswana</h3>
+              <p>Stillness</p>
             </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+          </article>
+          <article class="journey-card">
+            <img src="assets/journey-2.jpg" alt="Portrait of a child in mountain light in Peru" />
+            <div class="journey-text">
+              <h3>Peru</h3>
+              <p>Grace</p>
             </div>
-          </div>
+          </article>
+          <article class="journey-card">
+            <img src="assets/journey-3.jpg" alt="Horses and rider crossing a wide Mongolian valley" />
+            <div class="journey-text">
+              <h3>Mongolia</h3>
+              <p>Endurance</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-          <div class="field" style="margin-top:14px;">
-            <label for="type">Enquiry Type</label>
-            <select id="type" name="enquiry_type" required>
-              <option value="">Select one</option>
-              <option>Fine Art Print</option>
-              <option>Licensing</option>
-              <option>Commission</option>
-              <option>Other</option>
-            </select>
-          </div>
+      <section class="section-shell section-gap map-section" id="map">
+        <header class="section-header">
+          <p class="eyebrow">World Map</p>
+          <h2>Fieldwork across continents.</h2>
+        </header>
+        <div class="map-frame" aria-hidden="true">
+          <svg viewBox="0 0 900 420" role="img" aria-label="Minimal world map">
+            <path d="M80 180l70-45 75 6 55-45 95 10 45 31 34-7 55 25 23 30-15 34-46 9-21 26 22 34-14 12-65-14-40 17-41-12-25-35-51-8-62-42-14-26z" />
+            <path d="M540 101l44-27 69 6 45 20 46-1 52 30 19 24-26 16-47-6-24 21-31-11-35 17-44-18-14-24z" />
+            <path d="M665 233l35-8 52 20 20 40-36 35-53-11-27-47z" />
+          </svg>
+        </div>
+        <a class="text-link" href="#journeys">Explore all journeys</a>
+      </section>
 
-          <div class="field" style="margin-top:14px;">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
+      <section id="prints" class="section-shell section-gap">
+        <header class="section-header">
+          <p class="eyebrow">Fine Art Prints</p>
+          <h2>Archival prints made for collectors.</h2>
+        </header>
+        <div class="prints-grid">
+          <article class="print-card">
+            <img src="assets/prints-1.jpg" alt="Lion portrait print sample on fine art paper" />
+            <div>
+              <h3>Sovereign Light</h3>
+              <p>Archival pigment on 310gsm cotton rag, signed and numbered.</p>
+              <p class="price">From €1,250</p>
+            </div>
+          </article>
+          <article class="print-card">
+            <img src="assets/prints-2.jpg" alt="Elephant herd print sample in monochrome tones" />
+            <div>
+              <h3>Quiet Passage</h3>
+              <p>Museum-grade print, float-mounted with certificate of authenticity.</p>
+              <p class="price">From €1,050</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-          <div class="contact-actions">
-            <button class="btn primary" type="submit">Send Message</button>
-            <span class="small">This opens your email client (simple + reliable for now). We can switch to a “real” form later.</span>
-          </div>
+      <section id="licensing" class="section-shell section-gap licensing">
+        <header class="section-header">
+          <p class="eyebrow">Licensing</p>
+          <h2>Editorial and commercial usage rights.</h2>
+        </header>
+        <p>
+          Selected and full-archive images are available for editorial and commercial licensing, with
+          tailored usage packages for hospitality groups, travel brands, safari lodges, NGOs, and
+          international publications.
+        </p>
+      </section>
+
+      <section id="about" class="section-shell section-gap about">
+        <header class="section-header">
+          <p class="eyebrow">About the Photographer</p>
+          <h2>A patient witness to wild places.</h2>
+        </header>
+        <p>
+          Luca Di Donato is an Italian photographer whose work moves between wildlife observation
+          and human stories. Working in natural light and long field sessions, he builds images that
+          balance intimacy, atmosphere, and narrative depth for gallery walls and global campaigns.
+        </p>
+      </section>
+
+      <section id="contact" class="section-shell section-gap contact">
+        <header class="section-header">
+          <p class="eyebrow">Contact</p>
+          <h2>Prints, licensing, and commissions.</h2>
+        </header>
+        <form
+          class="contact-form"
+          action="mailto:studio@lucadidonato.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="enquiry">Enquiry Type</label>
+          <select id="enquiry" name="enquiry" required>
+            <option value="">Select one</option>
+            <option>Fine Art Prints</option>
+            <option>Licensing</option>
+            <option>Commissioned Assignment</option>
+            <option>General Enquiry</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+
+          <button class="button" type="submit">Send enquiry</button>
         </form>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer>
-    <div class="wrap footer-row">
-      <div>© 2024 Luca Di Donato — All rights reserved</div>
-      <div class="footer-nav">
-        <a href="#journeys">Journeys</a>
-        <a href="#prints">Prints</a>
-        <a href="#licensing">Licensing</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
