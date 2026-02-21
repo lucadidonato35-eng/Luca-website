@@ -3,557 +3,343 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luca Di Donato — Wildlife & Humanity</title>
-  <meta name="description" content="Photography — Documentary — Fine Art. Natural light. Real stories." />
-
-  <!-- Social preview (add files later) -->
-  <meta property="og:title" content="Luca Di Donato — Wildlife & Humanity" />
-  <meta property="og:description" content="Photography — Documentary — Fine Art. Natural light. Real stories." />
+  <title>Luca Di Donato | Wildlife & Documentary Photography</title>
+  <meta name="description" content="Wildlife and documentary photography by Luca Di Donato. Explore interactive journeys across 13 countries." />
+  <meta name="theme-color" content="#f8f7f4" />
+  <link rel="canonical" href="https://lucadidonato.com/" />
+  <meta property="og:title" content="Luca Di Donato | Wildlife & Documentary Photography" />
+  <meta property="og:description" content="Natural light. Real stories. Explore the interactive world journey map." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-cover.jpg" />
+  <meta property="og:url" content="https://lucadidonato.com/" />
+  <meta property="og:image" content="assets/hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/og-cover.jpg" />
-
-  <link rel="icon" href="assets/favicon.png" />
+  <meta name="twitter:image" content="assets/hero.jpg" />
 
   <style>
-    :root{
-      --bg: #0b0b0c;
-      --panel: rgba(255,255,255,.06);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --faint: rgba(255,255,255,.55);
-      --line: rgba(255,255,255,.12);
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-
+    :root {
+      --bg: #f8f7f4;
+      --paper: #ffffff;
+      --ink: #201d1a;
+      --muted: #6a635b;
+      --line: #dfd9d2;
+      --accent: #8b7d70;
+      --dark: #3a3028;
       --max: 1120px;
-      --pad: 24px;
-
-      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color: var(--text);
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.08), transparent 55%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,.06), transparent 60%),
-                  var(--bg);
-    }
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ opacity:.92; }
-
-    /* Layout helpers */
-    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 var(--pad); }
-    .section{ padding: 80px 0; border-top: 1px solid var(--line); }
-    .kicker{
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: var(--faint);
-    }
-    .h2{
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.2vw, 44px);
-      margin: 10px 0 12px;
-      line-height: 1.05;
-    }
-    .lead{
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      max-width: 72ch;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
       margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 16px/1.7 "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+    h1, h2, h3 {
+      margin: 0 0 .8rem;
+      line-height: 1.02;
+      font-weight: 400;
+      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    a { color: inherit; }
+    img { display: block; width: 100%; }
+
+    .container { width: min(100% - 2.5rem, var(--max)); margin-inline: auto; }
+    .section { padding: 5rem 0; border-top: 1px solid var(--line); }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .68rem;
+      color: #9b9084;
+      margin: 0 0 1rem;
     }
 
-    /* Top nav */
-    .topbar{
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(11,11,12,.55);
-      backdrop-filter: blur(10px);
+      z-index: 20;
       border-bottom: 1px solid var(--line);
+      background: rgba(248,247,244,.92);
+      backdrop-filter: blur(8px);
     }
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      height: 64px;
-      gap: 18px;
+    .topbar-row {
+      min-height: 68px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
-    .brand{
-      display:flex; flex-direction:column; line-height:1.05;
-    }
-    .brand strong{ font-weight: 650; letter-spacing:.02em; }
-    .brand span{ font-size: 12px; color: var(--faint); margin-top: 2px; letter-spacing:.12em; text-transform: uppercase; }
+    .brand { text-decoration: none; }
+    .brand strong { display: block; font-size: 1.08rem; font-family: "Iowan Old Style", "Palatino Linotype", serif; }
+    .brand span { text-transform: uppercase; letter-spacing: .2em; font-size: .62rem; color: #9b9084; }
 
-    .nav{
-      display:flex;
-      gap: 18px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    nav { display: flex; flex-wrap: wrap; gap: .35rem; }
+    nav a {
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .76rem;
+      color: #675f57;
+      padding: .45rem .72rem;
+      border: 1px solid transparent;
     }
-    .nav a{
-      font-size: 13px;
-      color: var(--muted);
-      padding: 10px 10px;
-      border-radius: 999px;
-    }
-    .nav a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+    nav a:hover, nav a:focus-visible { border-color: #bfb4a8; outline: none; }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      box-shadow: none;
-      font-size: 14px;
-      gap: 10px;
-    }
-    .btn:hover{ background: rgba(255,255,255,.10); }
-    .btn.primary{
-      background: rgba(255,255,255,.14);
-      border-color: rgba(255,255,255,.22);
-    }
-
-    /* Hero */
-    .hero{
-      padding: 70px 0 40px;
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      place-items: center;
+      text-align: center;
       border-top: none;
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 26px;
-      align-items: stretch;
+    .hero h1 { font-size: clamp(3.1rem, 10vw, 6.2rem); }
+    .surname { display:block; margin-top:-.18rem; font-style: italic; color: var(--accent); font-size: clamp(3.2rem, 10.6vw, 6.5rem); }
+    .hero p { max-width: 40ch; margin: 1.2rem auto 0; color: #8a8178; }
+
+    .btn {
+      display: inline-flex;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .67rem;
+      border: 1px solid #2e2924;
+      color: #2e2924;
+      padding: .9rem 2.2rem;
+      margin-top: 1.8rem;
+      transition: .18s ease;
     }
-    .hero-title{
-      font-family: var(--serif);
-      font-size: clamp(44px, 6vw, 76px);
-      line-height: .96;
-      margin: 10px 0 14px;
-      letter-spacing: .01em;
+    .btn:hover, .btn:focus-visible { background: #2e2924; color: #faf7f1; outline: none; }
+
+    .journey-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
     }
-    .hero-sub{
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.7;
-      margin: 0 0 18px;
-      max-width: 62ch;
-    }
-    .hero-actions{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 18px; }
-    .card{
+    .journey {
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+      background: var(--paper);
+      text-decoration: none;
     }
-    .hero-image{
-      min-height: 420px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65)),
-        url("assets/hero.jpg");
-      background-size: cover;
-      background-position: center;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding: 18px;
-    }
-    .hero-image .meta{
-      display:flex; gap: 12px; flex-wrap:wrap;
-      color: rgba(255,255,255,.82);
-      font-size: 13px;
-    }
-    .pill{
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.14);
-    }
+    .journey img { aspect-ratio: 16/10; object-fit: cover; }
+    .journey-body { padding: .85rem .95rem 1rem; }
+    .journey h3 { font-size: 1.7rem; margin-bottom: .2rem; }
+    .journey span { text-transform: uppercase; letter-spacing: .2em; font-size: .62rem; color: #ad9f90; }
 
-    /* Grids */
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 18px;
+    .world {
+      background: var(--dark);
+      color: #f4eee5;
+      text-align: center;
     }
-    .journey{
-      padding: 18px;
-    }
-    .journey .year{ color: var(--faint); font-size: 12px; letter-spacing:.16em; text-transform: uppercase; }
-    .journey .name{ font-family: var(--serif); font-size: 22px; margin: 10px 0 6px; }
-    .journey .tag{ color: var(--muted); font-size: 14px; margin: 0; }
+    .world .eyebrow { color: #b6a797; }
+    .world h2 { color: #f4eee5; font-size: clamp(2.3rem, 6vw, 4rem); }
+    .world h2 em { color: #bba58e; font-style: italic; }
+    .world p { color: #c8b8a8; max-width: 54ch; margin-inline: auto; }
 
-    /* Map / countries */
-    .chips{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-    .chip{
-      font-size: 12px;
-      color: var(--muted);
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.04);
-    }
-
-    /* Prints */
-    .print{
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height: 170px;
-    }
-    .print .title{ font-family: var(--serif); font-size: 22px; margin:0; }
-    .print .meta{ color: var(--muted); font-size: 13px; margin:0; }
-    .print .price{ color: rgba(255,255,255,.88); font-size: 14px; margin-top:auto; }
-
-    /* Licensing */
-    .two-col{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-    .list{
-      display:grid;
-      gap: 10px;
-      padding: 18px;
-    }
-    .list .item{ color: var(--muted); font-size: 14px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.10); border-radius: 14px; background: rgba(255,255,255,.03); }
-
-    /* About stats */
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .stat{ padding: 18px; text-align:left; }
-    .stat strong{ display:block; font-size: 26px; font-family: var(--serif); }
-    .stat span{ color: var(--muted); font-size: 13px; }
-
-    /* Contact */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .field{ display:flex; flex-direction:column; gap: 8px; }
-    label{ font-size: 12px; color: var(--faint); letter-spacing:.12em; text-transform: uppercase; }
-    input, select, textarea{
-      width:100%;
-      padding: 12px 12px;
+    .map-wrap {
+      margin: 2rem auto 0;
+      padding: 1rem;
+      max-width: 930px;
+      border: 1px solid #5d4f43;
+      background: rgba(255,255,255,.03);
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      outline: none;
-      font-family: var(--sans);
-      font-size: 14px;
     }
-    textarea{ min-height: 140px; resize: vertical; }
-    .contact-actions{ display:flex; gap: 12px; margin-top: 14px; flex-wrap:wrap; }
-    .small{ color: var(--muted); font-size: 13px; line-height:1.6; }
+    .map-wrap svg { width: 100%; height: auto; }
+    .continent { fill: rgba(246, 238, 228, .08); stroke: rgba(246,238,228,.2); stroke-width: 1; }
+    .route { stroke: rgba(212, 189, 162, .45); stroke-width: 1.5; fill: none; stroke-dasharray: 5 6; }
+    .map-point { fill: #d9bea0; transition: transform .12s ease, fill .12s ease; transform-origin: center; }
+    .point-link:hover .map-point,
+    .point-link:focus-visible .map-point { fill: #f9e8d4; transform: scale(1.25); outline: none; }
+    .map-label { fill: #d8c9b8; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 
-    /* Footer */
-    footer{
-      padding: 26px 0;
+    .journey-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+    .journey-links a {
+      text-decoration: none;
+      border: 1px solid #736253;
+      color: #deccba;
+      padding: .45rem .7rem;
+      text-transform: uppercase;
+      font-size: .64rem;
+      letter-spacing: .15em;
+    }
+
+    .contact-grid { margin-top: 1rem; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+    .card { border: 1px solid var(--line); background: var(--paper); padding: 1rem; }
+    .card h3 { font-size: 1.1rem; }
+
+    form { margin-top: 1.2rem; border: 1px solid var(--line); background: var(--paper); padding: 1rem; }
+    label { display:block; margin-bottom:.28rem; text-transform: uppercase; letter-spacing:.13em; font-size:.74rem; color:#72695f; }
+    .field { margin-bottom:.75rem; }
+    input, select, textarea {
+      width:100%;
+      border:1px solid #d0c6ba;
+      background:#fff;
+      color:#2b2622;
+      font: inherit;
+      padding: .6rem .65rem;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+
+    footer {
       border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
+      padding: 1.5rem 0 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .76rem;
+      color: #8d8275;
     }
-    .footer-row{ display:flex; justify-content:space-between; gap: 18px; flex-wrap:wrap; }
-    .footer-nav{ display:flex; gap: 12px; flex-wrap:wrap; }
+    .footer-row { display:flex; justify-content:space-between; gap:.5rem; flex-wrap:wrap; }
 
-    /* Responsive */
-    @media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .hero-image{ min-height: 360px; }
-      .grid-3{ grid-template-columns: 1fr; }
-      .two-col{ grid-template-columns: 1fr; }
-      .stats{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .nav{ display:none; } /* keeps it simple; we can add a tiny mobile menu later if you want */
+    @media (max-width: 920px) {
+      nav { display: none; }
+      .section { padding: 3.5rem 0; }
+      .journey-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: 75vh; }
     }
   </style>
 </head>
-
 <body>
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="Home">
+  <header class="topbar">
+    <div class="container topbar-row">
+      <a class="brand" href="#top" aria-label="Luca Di Donato home">
         <strong>Luca Di Donato</strong>
-        <span>Photography — Documentary — Fine Art</span>
+        <span>Photography · Documentary · Fine Art</span>
       </a>
-
-      <nav class="nav" aria-label="Primary">
+      <nav aria-label="Primary navigation">
         <a href="#journeys">Journeys</a>
-        <a href="#prints">Prints</a>
-        <a href="#licensing">Licensing</a>
-        <a href="#about">About</a>
+        <a href="#map">World Map</a>
         <a href="#contact">Contact</a>
       </nav>
-
-      <a class="btn primary" href="#contact">Commission / Enquire</a>
     </div>
-  </div>
+  </header>
 
   <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="kicker">Photography — Documentary — Fine Art</div>
-          <h1 class="hero-title">Luca<br/>Di Donato</h1>
-          <p class="hero-sub">Wildlife and humanity across 13 countries.<br/>Natural light. Real stories.</p>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#journeys">Explore the World</a>
-            <a class="btn" href="#prints">Fine Art Prints</a>
-          </div>
-
-          <p class="small" style="margin-top:16px;color:var(--faint);">
-            Tip: replace <strong>assets/hero.jpg</strong> with your strongest Peru or Botswana photo for the best first impression.
-          </p>
-        </div>
-
-        <div class="card hero-image" role="img" aria-label="Hero image">
-          <div class="meta">
-            <span class="pill">Botswana — Okavango Delta (2024)</span>
-            <span class="pill">Peru — Andean Highlands (2023)</span>
-          </div>
-        </div>
+    <section class="section hero">
+      <div class="container">
+        <p class="eyebrow">Photography · Documentary · Fine Art</p>
+        <h1>Luca <span class="surname">Di Donato</span></h1>
+        <p>Wildlife and humanity across 13 countries. Natural light. Real stories.</p>
+        <a class="btn" href="#map">Explore the World</a>
       </div>
     </section>
 
-    <!-- JOURNEYS -->
     <section id="journeys" class="section">
-      <div class="wrap">
-        <div class="kicker">Selected Work</div>
-        <div class="h2">Featured Journeys</div>
-        <p class="lead">Three recent series — curated as an entry point to the full archive.</p>
+      <div class="container">
+        <p class="eyebrow">Selected Journeys</p>
+        <h2>Places, patience, and presence.</h2>
+        <p>Open a destination to view the complete journey notes, highlights, and featured frames.</p>
+        <div class="journey-grid">
+          <a class="journey" href="journeys/botswana.html">
+            <img src="assets/hero.jpg" alt="Golden wildlife scene in Botswana at sunrise." loading="lazy" />
+            <div class="journey-body"><h3>Botswana</h3><span>Silence</span></div>
+          </a>
+          <a class="journey" href="journeys/rwanda.html">
+            <img src="assets/DSC_9448.jpeg" alt="Portrait wildlife frame from Rwanda." loading="lazy" />
+            <div class="journey-body"><h3>Rwanda</h3><span>Primordial</span></div>
+          </a>
+          <a class="journey" href="journeys/mongolia.html">
+            <img src="assets/hero.jpg" alt="Mongolian landscape at dusk with dramatic tones." loading="lazy" />
+            <div class="journey-body"><h3>Mongolia</h3><span>Endurance</span></div>
+          </a>
+          <a class="journey" href="journeys/peru.html">
+            <img src="assets/DSC_9448.jpeg" alt="Peruvian mountain region with soft golden haze." loading="lazy" />
+            <div class="journey-body"><h3>Peru</h3><span>Elevation</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        <div class="grid-3">
-          <div class="card journey">
-            <div class="year">2024</div>
-            <div class="name">Botswana</div>
-            <p class="tag">Silence</p>
-          </div>
-          <div class="card journey">
-            <div class="year">2023</div>
-            <div class="name">Rwanda</div>
-            <p class="tag">Primordial</p>
-          </div>
-          <div class="card journey">
-            <div class="year">2024</div>
-            <div class="name">Mongolia</div>
-            <p class="tag">Endurance</p>
+    <section id="map" class="section world">
+      <div class="container">
+        <p class="eyebrow">13 Countries · 5 Continents</p>
+        <h2>The <em>World</em> in Frame</h2>
+        <p>Click any point to open its dedicated journey page.</p>
+
+        <div class="map-wrap" role="img" aria-label="Interactive world map with clickable journey destinations">
+          <svg viewBox="0 0 980 450" aria-hidden="true">
+            <path class="continent" d="M95 138 124 110 168 98 224 94 256 111 285 124 309 151 303 189 274 214 249 224 229 243 203 251 186 241 162 247 141 235 124 214 113 194 102 167Z"/>
+            <path class="continent" d="M244 259 272 251 289 274 294 301 287 338 266 376 243 384 226 362 223 322 230 287Z"/>
+            <path class="continent" d="M318 88 337 82 351 90 355 107 341 112 324 106Z"/>
+            <path class="continent" d="M378 116 401 103 433 104 453 113 466 122 484 133 487 149 472 159 458 155 439 156 423 152 409 145 394 141 382 130Z"/>
+            <path class="continent" d="M464 176 487 165 512 168 541 182 556 207 558 236 550 274 544 314 512 330 485 314 473 279 470 241Z"/>
+            <path class="continent" d="M549 168 566 159 580 171 573 183 556 181Z"/>
+            <path class="continent" d="M579 108 623 101 664 97 714 95 764 112 807 130 829 151 819 176 803 189 776 191 753 204 734 219 706 226 688 219 671 205 647 208 626 199 603 182 585 159 576 138Z"/>
+            <path class="continent" d="M713 231 735 222 759 228 774 244 776 268 768 288 749 300 724 293 709 271Z"/>
+            <path class="continent" d="M780 239 801 232 820 247 818 270 800 286 781 278 775 259Z"/>
+            <path class="continent" d="M842 132 859 129 869 140 863 154 847 156 838 146Z"/>
+            <path class="continent" d="M748 308 812 302 837 330 831 374 785 389 739 382 730 341Z"/>
+
+            <path class="route" d="M206 208 C298 205, 382 195, 500 258"/>
+            <path class="route" d="M500 258 C585 208, 652 183, 714 165"/>
+            <path class="route" d="M714 165 C672 181, 610 224, 504 286"/>
+            <path class="route" d="M504 286 C430 295, 352 304, 258 295"/>
+
+            <a class="point-link" href="journeys/botswana.html" aria-label="Open Botswana journey">
+              <circle class="map-point" cx="504" cy="286" r="6"/>
+              <text class="map-label" x="516" y="291">Botswana</text>
+            </a>
+            <a class="point-link" href="journeys/rwanda.html" aria-label="Open Rwanda journey">
+              <circle class="map-point" cx="500" cy="258" r="6"/>
+              <text class="map-label" x="512" y="262">Rwanda</text>
+            </a>
+            <a class="point-link" href="journeys/mongolia.html" aria-label="Open Mongolia journey">
+              <circle class="map-point" cx="712" cy="165" r="6"/>
+              <text class="map-label" x="724" y="169">Mongolia</text>
+            </a>
+            <a class="point-link" href="journeys/peru.html" aria-label="Open Peru journey">
+              <circle class="map-point" cx="258" cy="295" r="6"/>
+              <text class="map-label" x="270" y="299">Peru</text>
+            </a>
+          </svg>
+          <div class="journey-links">
+            <a href="journeys/botswana.html">Botswana</a>
+            <a href="journeys/rwanda.html">Rwanda</a>
+            <a href="journeys/mongolia.html">Mongolia</a>
+            <a href="journeys/peru.html">Peru</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MAP / COUNTRIES -->
-    <section class="section">
-      <div class="wrap">
-        <div class="kicker">13 Countries — 5 Continents</div>
-        <div class="h2">The World in Frame</div>
-        <p class="lead">From the Okavango Delta to the fjords of Norway. Every frame, a lived moment.</p>
-
-        <!-- Keep it simple for now: clickable chips later -->
-        <div class="chips" aria-label="Countries">
-          <span class="chip">Botswana</span>
-          <span class="chip">China</span>
-          <span class="chip">Italy</span>
-          <span class="chip">South Korea</span>
-          <span class="chip">Maldives</span>
-          <span class="chip">Norway</span>
-          <span class="chip">Peru</span>
-          <span class="chip">South Africa</span>
-          <span class="chip">Spain</span>
-          <span class="chip">Sri Lanka</span>
-          <span class="chip">Thailand</span>
-          <span class="chip">USA</span>
-          <span class="chip">Vietnam</span>
-        </div>
-
-        <div style="margin-top:18px;">
-          <a class="btn" href="#contact">Commission a Journey</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRINTS -->
-    <section id="prints" class="section">
-      <div class="wrap">
-        <div class="kicker">Fine Art Prints</div>
-        <div class="h2">Crafted for Permanence</div>
-        <p class="lead">Limited editions, archival pigment printing on 300gsm cotton rag. Each print signed and numbered.</p>
-
-        <div class="grid-3">
-          <div class="card print">
-            <p class="title">Sovereign</p>
-            <p class="meta">Ed. 1/25 — Okavango Delta</p>
-            <p class="price">From €1,200</p>
-          </div>
-          <div class="card print">
-            <p class="title">Stalker</p>
-            <p class="meta">Ed. 1/20 — Serengeti</p>
-            <p class="price">From €980</p>
-          </div>
-          <div class="card print">
-            <p class="title">Leviathan</p>
-            <p class="meta">Ed. 1/15 — Azores</p>
-            <p class="price">From €1,600</p>
-          </div>
-        </div>
-
-        <p class="small" style="margin-top:14px;">All prints include certificate of authenticity &amp; white-glove delivery.</p>
-      </div>
-    </section>
-
-    <!-- LICENSING -->
-    <section id="licensing" class="section">
-      <div class="wrap">
-        <div class="kicker">Commercial &amp; Editorial</div>
-        <div class="h2">Images Available for Licensing</div>
-        <p class="lead">
-          The full archive — spanning four continents, fifteen countries, and thousands of hours in the field —
-          is available for editorial and commercial use. Every image is shot in natural light and carries a story worth telling.
-        </p>
-
-        <div style="margin-top:18px;">
-          <a class="btn primary" href="#contact">Enquire About Licensing</a>
-        </div>
-
-        <div class="two-col">
-          <div class="card list">
-            <div class="item">Safari Lodges &amp; Eco-Resorts</div>
-            <div class="item">Travel &amp; Lifestyle Publications</div>
-            <div class="item">Conservation NGOs</div>
-            <div class="item">Hospitality &amp; Luxury Brands</div>
-            <div class="item">Documentary &amp; Film Production</div>
-            <div class="item">Advertising &amp; Brand Campaigns</div>
-          </div>
-
-          <div class="card" style="padding:18px;">
-            <p class="small" style="margin:0 0 12px;color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.35;">
-              “Images that carry the weight of place — available exclusively for those who understand the value of authentic storytelling.”
-            </p>
-            <p class="small" style="margin:0;">Okavango Delta, 2024<br/>First light, 5:30am</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="wrap">
-        <div class="kicker">The Photographer</div>
-        <div class="h2">A Lens Held to the World</div>
-        <p class="lead">
-          Luca Di Donato has spent the better part of a decade moving through remote places with a camera, a notebook, and the patience that wild subjects demand. Born in Milan, drawn outward.
-          His work lives at the intersection of wildlife documentary and portraiture — the moment before language, where instinct and light say everything.
-        </p>
-        <p class="lead" style="margin-top:10px;">
-          From the fjords of Norway to the coral atolls of the Maldives, from Spain's sierras to the streets of Seoul — Luca shoots exclusively in natural light.
-          The work is quiet. It asks to be looked at slowly.
-        </p>
-
-        <div class="stats">
-          <div class="card stat"><strong>13</strong><span>Countries</span></div>
-          <div class="card stat"><strong>8+</strong><span>Years in Field</span></div>
-          <div class="card stat"><strong>40k</strong><span>Images Archived</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
     <section id="contact" class="section">
-      <div class="wrap">
-        <div class="kicker">Get in Touch</div>
-        <div class="h2">Begin a Conversation</div>
-        <p class="lead">
-          For print enquiries, licensing requests, commissioned projects, or simply to discuss a journey — all correspondence is welcome and personally answered.
-        </p>
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h2>Begin a conversation.</h2>
+        <p>For fine art prints, licensing, and commissioned assignments.</p>
 
-        <div class="card" style="padding:18px; margin-top:18px;">
-          <p class="small" style="margin:0;">
-            Email: <a href="mailto:studio@lucadidonato.com"><strong>studio@lucadidonato.com</strong></a>
-          </p>
-          <p class="small" style="margin:10px 0 0;">
-            Follow: <a href="#" aria-label="Instagram">Instagram</a> · <a href="#" aria-label="LinkedIn">LinkedIn</a> · <a href="#" aria-label="500px">500px</a>
-          </p>
+        <div class="contact-grid">
+          <article class="card"><h3>Email</h3><p><a href="mailto:studio@lucadidonato.com">studio@lucadidonato.com</a></p></article>
+          <article class="card"><h3>Instagram</h3><p><a href="https://instagram.com" target="_blank" rel="noreferrer noopener">@lucadidonato</a></p></article>
+          <article class="card"><h3>Availability</h3><p>2026 commissions now open.</p></article>
         </div>
 
-        <!-- Simple: no backend. Uses mailto so it "works" now. -->
-        <form class="card" style="padding:18px; margin-top:16px;"
-              action="mailto:studio@lucadidonato.com" method="post" enctype="text/plain">
-          <div class="contact-grid">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-          </div>
-
-          <div class="field" style="margin-top:14px;">
-            <label for="type">Enquiry Type</label>
-            <select id="type" name="enquiry_type" required>
-              <option value="">Select one</option>
-              <option>Fine Art Print</option>
-              <option>Licensing</option>
-              <option>Commission</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="field" style="margin-top:14px;">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-
-          <div class="contact-actions">
-            <button class="btn primary" type="submit">Send Message</button>
-            <span class="small">This opens your email client (simple + reliable for now). We can switch to a “real” form later.</span>
-          </div>
+        <form action="mailto:studio@lucadidonato.com" method="post" enctype="text/plain">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="project">Project Type</label><select id="project" name="project" required><option value="">Select one</option><option>Commission</option><option>Licensing</option><option>Print Purchase</option><option>Partnership</option></select></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+          <button class="btn" type="submit">Send Message</button>
         </form>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-row">
-      <div>© 2024 Luca Di Donato — All rights reserved</div>
-      <div class="footer-nav">
-        <a href="#journeys">Journeys</a>
-        <a href="#prints">Prints</a>
-        <a href="#licensing">Licensing</a>
-        <a href="#contact">Contact</a>
-      </div>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Luca Di Donato</span>
+      <span><a href="#journeys">Journeys</a> · <a href="#map">World Map</a> · <a href="#contact">Contact</a></span>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
