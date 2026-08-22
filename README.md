@@ -36,3 +36,8 @@ python3 -m http.server 8000
 ```
 
 Then visit: `http://localhost:8000`
+
+## Also in this repository
+
+- `finance/` — a separate, local-first personal finance cockpit. Unrelated to
+  the photography site; see `finance/README.md`.
