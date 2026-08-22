@@ -1,0 +1,25 @@
+# ---- Personal finance cockpit: never commit data or secrets ----
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+.env
+.env.*
+!.env.example
+/data/imports/
+/finance/data/
+/finance/.env
+/finance/.env.*
+!/finance/.env.example
+
+# ---- Build & tooling ----
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+npm-debug.log*

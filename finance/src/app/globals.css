@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: light dark;
+}
+
+/* Figures are the content here: align them in columns and keep them tabular. */
+.figures {
+  font-variant-numeric: tabular-nums;
+}
